@@ -2,7 +2,7 @@
 {
     public enum StatusVendas : int
     {
-        Pago = 0,
+        Pendente = 0,
         Faturado = 1,
         Cancelado = 2
     }
