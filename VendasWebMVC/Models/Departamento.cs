@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace VendasWebMVC.Models
 {
@@ -9,6 +8,8 @@ namespace VendasWebMVC.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
+
+        public ICollection<Vendedor> Vendedores { get; set; } = new List<Vendedor>();
 
         public Departamento()
         {
@@ -18,6 +19,16 @@ namespace VendasWebMVC.Models
         {
             Id = id;
             Name = name;
+        }
+
+        public void AddSeller(Vendedor vendedor)
+        {
+            Vendedores.Add(vendedor);
+        }
+
+        public double TotalVendas(DateTime inicial, DateTime final)
+        {
+            return Vendedores.Sum(vendedor => vendedor.TotalVendas(inicial, final));
         }
     }
 }
