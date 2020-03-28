@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using VendasWebMVC.Services;
+using VendasWebMVC.Models;
 
 namespace VendasWebMVC.Controllers
 {
@@ -20,6 +21,18 @@ namespace VendasWebMVC.Controllers
         {
             var list = _vendedorServico.FindAll();
             return View(list);
+        }
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]//Evitar ataques de autenticação
+        public IActionResult Create(Vendedor vendedor)
+        {
+            _vendedorServico.Insert(vendedor);
+            return RedirectToAction(nameof(Index));
         }
     }
 }

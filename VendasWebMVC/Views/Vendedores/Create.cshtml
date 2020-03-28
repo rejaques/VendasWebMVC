@@ -1,0 +1,43 @@
+﻿@model VendasWebMVC.Models.Vendedor
+@{
+    ViewData["Title"] = "Adicionar vendedor";
+}
+
+    <h2>@ViewData["Title"]</h2>
+
+<h4>Vendedor</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div class="form-group">
+                <p>Nome</p>
+                <label asp-for="Name" class="control-label">
+                    <input asp-for="Name" class="form-control" />
+                </label>
+            </div>
+            <div class="form-group">
+                <p>Email</p>
+                <label asp-for="Email" class="control-label">
+                    <input asp-for="Email" class="form-control" />
+                </label>
+            </div>
+            <div class="form-group">
+                <p>Data de nascimento</p>
+                <label asp-for="BirthDate" class="control-label">
+                    <input asp-for="BirthDate" class="form-control" />
+                </label>
+            </div>
+            <div class="form-group">
+                <p>Salário base</p>
+                <label asp-for="BaseSalary" class="control-label">
+                    <input asp-for="BaseSalary" class="form-control" />
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Adicionar" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+
+</div>
