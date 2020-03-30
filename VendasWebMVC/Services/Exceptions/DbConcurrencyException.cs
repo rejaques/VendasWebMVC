@@ -4,7 +4,7 @@ namespace VendasWebMVC.Services.Exceptions
 {
     public class DbConcurrencyException : ApplicationException
     {
-        public DbConcurrencyException (string massage) : base(massage)
+        public DbConcurrencyException (string message) : base(message)
         {
         }
     }
