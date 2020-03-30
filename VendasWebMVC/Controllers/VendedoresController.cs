@@ -1,20 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using VendasWebMVC.Services;
 using VendasWebMVC.Models;
+using VendasWebMVC.Models.ViewModels;
 
 namespace VendasWebMVC.Controllers
 {
     public class VendedoresController : Controller
     {
         private readonly VendedorService _vendedorServico;
+        private readonly DepartamentoService _departamentoService;
 
-        public VendedoresController(VendedorService vendedorServico)
+        public VendedoresController(VendedorService vendedorServico, DepartamentoService departamentoService)
         {
             _vendedorServico = vendedorServico;
+            _departamentoService = departamentoService;
         }
 
         public IActionResult Index()
@@ -24,7 +26,10 @@ namespace VendasWebMVC.Controllers
         }
         public IActionResult Create()
         {
-            return View();
+            var departments = _departamentoService.FindAll();
+            var viewModel = new VendedorFormViewModel { Departamentos = departments };
+
+            return View(viewModel);
         }
 
         [HttpPost]
