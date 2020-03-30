@@ -29,8 +29,10 @@ namespace VendasWebMVC.Models
         [DisplayFormat(DataFormatString = "{0:F2}")]
         public double BaseSalary { get; set; }
         public Departamento Departamento { get; set; }
+
+        [Display(Name = "Departamento")]
         public int DepartamentoId { get; set; }
-        public ICollection<RegistroVendas> Vendas { get; set; } = new List<RegistroVendas>();
+        public ICollection<RegistroVenda> Vendas { get; set; } = new List<RegistroVenda>();
 
         public Vendedor()
         {
@@ -46,12 +48,12 @@ namespace VendasWebMVC.Models
             Departamento = departamento;
         }
 
-        public void AddVendas(RegistroVendas sr)
+        public void AddVendas(RegistroVenda sr)
         {
             Vendas.Add(sr);
         }
 
-        public void RemoveVendas(RegistroVendas sr)
+        public void RemoveVendas(RegistroVenda sr)
         {
             Vendas.Remove(sr);
         }

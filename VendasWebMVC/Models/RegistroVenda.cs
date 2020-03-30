@@ -3,7 +3,7 @@ using VendasWebMVC.Models.Enums;
 
 namespace VendasWebMVC.Models
 {
-    public class RegistroVendas
+    public class RegistroVenda
     {
         public int Id { get; set; }
         public DateTime Date { get; set; }
@@ -11,11 +11,11 @@ namespace VendasWebMVC.Models
         public StatusVendas Status { get; set; }
         public Vendedor Vendedor { get; set; }
 
-        public RegistroVendas()
+        public RegistroVenda()
         {
         }
 
-        public RegistroVendas(int id, DateTime date, double amount, StatusVendas status, Vendedor vendedor)
+        public RegistroVenda(int id, DateTime date, double amount, StatusVendas status, Vendedor vendedor)
         {
             Id = id;
             Date = date;
