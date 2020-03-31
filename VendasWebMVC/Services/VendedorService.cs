@@ -5,6 +5,7 @@ using VendasWebMVC.Models;
 using Microsoft.EntityFrameworkCore;
 using VendasWebMVC.Services.Exceptions;
 using System.Threading.Tasks;
+using System;
 
 namespace VendasWebMVC.Services
 {
@@ -26,6 +27,11 @@ namespace VendasWebMVC.Services
         {
             _context.Add(obj);
             await _context.SaveChangesAsync();
+        }
+
+        internal Task FindByDateAsync(DateTime? inicial, DateTime? final)
+        {
+            throw new NotImplementedException();
         }
 
         public async Task<Vendedor> FindByIdAsync(int id)
